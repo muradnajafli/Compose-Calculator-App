@@ -42,7 +42,7 @@ fun Calculator(
             verticalArrangement = Arrangement.spacedBy(buttonSpacing)
         ) {
             Text(
-                text = state.number1 + "\n" + state.operation + "\n" + state.number2,
+                text = state.number1 + state.operation + state.number2,
                 textAlign = TextAlign.End,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -50,7 +50,7 @@ fun Calculator(
                 fontWeight = FontWeight.Light,
                 fontSize = 80.sp,
                 color = White,
-                maxLines = 3
+                maxLines = 2
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
