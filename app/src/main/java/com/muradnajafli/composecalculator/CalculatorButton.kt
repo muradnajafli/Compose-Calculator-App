@@ -3,6 +3,7 @@ package com.muradnajafli.composecalculator
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -12,6 +13,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.muradnajafli.composecalculator.ui.theme.SymbolColor
@@ -32,8 +37,11 @@ fun CalculatorButton(
     ) {
         Text(
             text = symbol,
-            fontSize = 36.sp,
-            color = textColor
+            fontSize = 32.sp,
+            color = textColor,
+            modifier = Modifier.padding(horizontal = 4.dp, vertical = 6.dp),
+            fontWeight = FontWeight.Medium,
+            fontFamily = FontFamily(Font(R.font.poppins_medium)),
         )
     }
 }
@@ -53,7 +61,9 @@ fun DeleteButton(
         Image(
             painter = painterResource(id = R.drawable.ic_delete),
             contentDescription = "Delete",
-            modifier = Modifier.size(48.dp)
+            modifier = Modifier
+                .size(48.dp, 48.dp)
+                .padding(horizontal = 4.dp, vertical = 6.dp)
         )
     }
 }

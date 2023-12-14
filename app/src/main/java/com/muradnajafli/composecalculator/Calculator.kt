@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.muradnajafli.composecalculator.ui.theme.AcBackgroundColor
@@ -31,7 +30,6 @@ import com.muradnajafli.composecalculator.ui.theme.White
 fun Calculator(
     state: CalculatorState,
     modifier: Modifier = Modifier,
-    buttonSpacing: Dp = 8.dp,
     onAction: (CalculatorAction) -> Unit
 ) {
     Box(modifier = modifier) {
@@ -39,7 +37,7 @@ fun Calculator(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter),
-            verticalArrangement = Arrangement.spacedBy(buttonSpacing)
+            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             Text(
                 text = state.number1 + state.operation + state.number2,
@@ -54,14 +52,14 @@ fun Calculator(
             )
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 CalculatorButton(
-                    symbol = "AC",
+                    symbol = "Ac",
                     modifier = Modifier
                         .background(AcBackgroundColor)
-                        .aspectRatio(2f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(2f),
+                        .aspectRatio(2f)
+                        .weight(1.8f),
                     onClick = {
                         onAction(CalculatorAction.Clear)
                     },
@@ -70,34 +68,34 @@ fun Calculator(
                 DeleteButton(
                     modifier = Modifier
                         .background(DelBackgroundColor)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(0.9f)
+                        .weight(0.8f),
+
                     onClick = {
                         onAction(CalculatorAction.Delete)
                     }
                 )
                 CalculatorButton(
-                    symbol = "/",
+                    symbol = "*",
                     modifier = Modifier
                         .background(OperationBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(0.9f)
+                        .weight(0.8f),
                     onClick = {
-                        onAction(CalculatorAction.CalculatorOperation.Divide)
+                        onAction(CalculatorAction.CalculatorOperation.Multiply)
                     }
                 )
             }
-
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 CalculatorButton(
                     symbol = "7",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(7))
                     }
@@ -106,8 +104,8 @@ fun Calculator(
                     symbol = "8",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(8))
                     }
@@ -116,34 +114,34 @@ fun Calculator(
                     symbol = "9",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(9))
                     }
                 )
                 CalculatorButton(
-                    symbol = "*",
+                    symbol = "-",
                     modifier = Modifier
                         .background(OperationBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
-                        onAction(CalculatorAction.CalculatorOperation.Multiply)
+                        onAction(CalculatorAction.CalculatorOperation.Subtract)
                     }
                 )
             }
-
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 CalculatorButton(
                     symbol = "4",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(4))
                     }
@@ -152,8 +150,8 @@ fun Calculator(
                     symbol = "5",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(5))
                     }
@@ -162,34 +160,34 @@ fun Calculator(
                     symbol = "6",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(6))
                     }
                 )
                 CalculatorButton(
-                    symbol = "-",
+                    symbol = "/",
                     modifier = Modifier
                         .background(OperationBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
-                        onAction(CalculatorAction.CalculatorOperation.Subtract)
+                        onAction(CalculatorAction.CalculatorOperation.Divide)
                     }
                 )
             }
-
             Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
+                modifier = Modifier
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 CalculatorButton(
                     symbol = "1",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(1))
                     }
@@ -198,8 +196,8 @@ fun Calculator(
                     symbol = "2",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(2))
                     }
@@ -208,8 +206,8 @@ fun Calculator(
                     symbol = "3",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(1f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Number(3))
                     }
@@ -218,34 +216,33 @@ fun Calculator(
                     symbol = "+",
                     modifier = Modifier
                         .background(OperationBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(0.7f)
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.CalculatorOperation.Add)
                     }
                 )
             }
-
             Row(
                 modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(buttonSpacing)
+                horizontalArrangement = Arrangement.spacedBy(20.dp)
             ) {
                 CalculatorButton(
                     symbol = "0",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(2f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(2f),
+                        .aspectRatio(1.9f)
+                        .weight(1.8f), // Adjusted weight
                     onClick = {
-                        onAction(CalculatorAction.Number(1))
+                        onAction(CalculatorAction.Number(0))
                     }
                 )
                 CalculatorButton(
                     symbol = ".",
                     modifier = Modifier
                         .background(NumberBackground)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(0.7f) // Adjusted aspect ratio
+                        .weight(0.8f), // Adjusted weight
                     onClick = {
                         onAction(CalculatorAction.Decimal)
                     }
@@ -254,8 +251,8 @@ fun Calculator(
                     symbol = "=",
                     modifier = Modifier
                         .background(EqualBackgroundColor)
-                        .aspectRatio(1f) // uzun teref balacanin 2 qati olmasi ucun
-                        .weight(1f),
+                        .aspectRatio(0.7f) // Adjusted aspect ratio
+                        .weight(0.8f),
                     onClick = {
                         onAction(CalculatorAction.Calculate)
                     },
